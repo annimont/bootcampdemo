@@ -14,8 +14,8 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/tulot-ja-menot" component={Money} />
-        <Route path="/nettovarallisuus" component={Networth} />
+        <Route path="/money" component={Money} />
+        <Route path="/networth" component={Networth} />
         <Route render={() => "404 - Not Found!"} />
       </Switch>
     </Router>

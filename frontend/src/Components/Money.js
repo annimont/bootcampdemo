@@ -1,11 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 //import fakeData from '../../fakedata/money.json';
-//import Income from './Income.js';
-//import Spendings from './Spendings.js';
+import AddTransaction from './AddTransaction.js';
+import Transaction from './Transaction.js';
 
 export default function Money(props) {
+    const [money, setMoney] = useState([]);
+
+    useEffect(() => {
+    async function fetchData() {
+        const res = await fetch('/api/money');//pitääkö backendissä olla sama route
+        res
+            .json()
+            .then(data => setMoney(data))
+            .catch(err => console.log(err));
+    }
+    
+    fetchData();
+    }, []);
+   
+    const transactionElements = money.map(
+    transactionData => {
+        return <Transaction key={transactionData.id} type={transactionData.type}>{transactionData.name}</Transaction>
+        }
+    )
+    
     return (
+        <React.Fragment>
+            <AddTransaction onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
+            <div className="money">
+                {transactionElements}
+            </div>  
+        </React.Fragment>
+    );
+}
+    
+    /*return (
         <form>
             <h1>Tulot ja menot</h1>
             <div>
@@ -82,4 +112,4 @@ export default function Money(props) {
         </form>
         
     );
-}
+}*/

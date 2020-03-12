@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "brand": "Santa Maria",
+        "name": "mustapippuri",
+        "pakkaus": "lasipurkki",
+        "paino": 70 
+    },{
+        "id": 2,
+        "brand": "Santa Maria",
+        "name": "mustapippuri",
+        "pakkaus": "lasipurkki",
+        "paino": 40 
+    },{
+        "id": 3,
+        "brand": "Santa Maria",
+        "name": "mustapippuri",
+        "pakkaus": "lasipurkki",
+        "paino": 30 
+    }
+]

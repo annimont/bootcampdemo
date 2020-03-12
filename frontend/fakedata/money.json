@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "type": "tulo",
+        "name": "palkka",
+        "amount": ""
+    },{
+        "id": 2,
+        "type": "tulo",
+        "name": "tuet",
+        "amount": ""
+    }
+]

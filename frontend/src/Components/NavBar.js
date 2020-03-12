@@ -10,6 +10,12 @@ export default function NavBar(props) {
                 <li>
                     <Link to="/">Home</Link>
                 </li>
+                <li>
+                    <Link to="/tulot-ja-menot">Tulot ja menot</Link>
+                </li>
+                <li>
+                <Link to="/nettovarallisuus">Nettovarallisuus</Link>
+                </li>
             </ul>
         </div>
     );

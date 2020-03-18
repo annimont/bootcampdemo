@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
 //import fakeData from '../../fakedata/money.json';
-import AddTransaction from './AddTransaction.js';
-import Transaction from './Transaction.js';
+import AddTransaction from './AddTransaction';
+import Transaction from './Transaction';
+import './Money.css';
 
 export default function Money(props) {
     const [money, setMoney] = useState([]);
 
     useEffect(() => {
     async function fetchData() {
-        const res = await fetch('/api/money');//pitääkö backendissä olla sama route
+        const res = await fetch('/api/money');
         res
             .json()
             .then(data => setMoney(data))
@@ -18,10 +19,19 @@ export default function Money(props) {
     
     fetchData();
     }, []);
+
+    const onDelete = (id) => {
+        fetch(`/api/money/${id}`, {
+        method: 'DELETE'
+        })
+        .then(() =>
+        setMoney(money.filter(transaction => transaction.id !== id))
+        );
+    }
    
     const transactionElements = money.map(
     transactionData => {
-        return <Transaction key={transactionData.id} type={transactionData.type}>{transactionData.name}</Transaction>
+        return <Transaction key={transactionData.id} type={transactionData.type} onDelete={() => onDelete(transactionData.id)}>{transactionData.name}</Transaction>
         }
     )
     

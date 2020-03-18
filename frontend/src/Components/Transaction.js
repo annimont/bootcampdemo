@@ -1,8 +1,12 @@
 import React from 'react';
+import './Transaction.css';
 
-export default function Spendings(props) {
+export default function Transaction(props) {
     return (
-        console.log('menot')
+        <div className={`transaction ${props.type}`}>
+            {props.children}
+            {props.onDelete && <button onClick={event => props.onDelete()}>X</button> }
+        </div>
     );
 
 }

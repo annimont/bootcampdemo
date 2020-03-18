@@ -3,8 +3,7 @@ import React from 'react';
 export default class AddTransaction extends React.Component {
     state = {
         type: "",
-        name: "",
-        value: "",
+        name: ""
     }
 
     handleInputChange(event) {
@@ -16,7 +15,6 @@ export default class AddTransaction extends React.Component {
       }
 
     onSave(event) {
-        console.log("testi")
         event.preventDefault();
         fetch('/api/money', {
             method: 'POST',
@@ -34,16 +32,25 @@ export default class AddTransaction extends React.Component {
         return (
             <React.Fragment>
                 <form onSubmit={(event) => this.onSave(event)}>
+                <div>
+                    <label>Tyyppi: </label>
+                    <select
+                        required
+                        name="type" 
+                        onChange={(event) => this.handleInputChange(event)}
+                        >
+                        <option value="" selected disabled hidden>Please select one</option>
+                        <option value="income">Tulo</option>
+                        <option value="expense">Meno</option>
+                    </select>
+                    </div>
                     <div>
-                        <label>Vuokra: </label>
-                        <input
-                            type="text" 
-                            onChange={(event) => this.handleInputChange(event)}
-                            />
+                        <label>Nimi: </label>
+                        <input required type="text" name="name" onChange={(event) => this.handleInputChange(event)}/>
                     </div>
                     <button type="submit">Lisää</button>
                 </form>
             </React.Fragment>
-        )
+        );
     }
 }

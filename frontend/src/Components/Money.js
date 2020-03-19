@@ -31,16 +31,18 @@ export default function Money(props) {
    
     const transactionElements = money.map(
     transactionData => {
-        return <Transaction key={transactionData.id} type={transactionData.type} onDelete={() => onDelete(transactionData.id)}>{transactionData.name}</Transaction>
+        return <Transaction key={transactionData.id} 
+            type={transactionData.type} 
+            onDelete={() => onDelete(transactionData.id)}>{transactionData.name}</Transaction>
         }
     )
     
     return (
         <React.Fragment>
-            <AddTransaction onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
             <div className="money">
                 {transactionElements}
-            </div>  
+            </div>
+            <AddTransaction onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
         </React.Fragment>
     );
 }

@@ -1,6 +1,7 @@
 .money {
-    background-color: yellow;
-    width: 400px;
+    background-color: rgb(177, 216, 243);
+    width: 200px;
     padding: 10px 20px;
     overflow: auto;
+    margin:20px;
 }

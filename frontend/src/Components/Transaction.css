@@ -3,9 +3,9 @@
     margin: 10px;
     padding: 4px;
     text-align: center;
-    width: 4.5em;
-    height: 2.2em;
+    width: 7.5em;
+    height: 1.5em;
     float: left;
   }
-.income {background-color: red;}
-.expense {background-color: green; color: white;}
+.expense {background-color: red;}
+.income {background-color: green; color: white;}

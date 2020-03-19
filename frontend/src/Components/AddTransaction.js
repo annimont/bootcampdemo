@@ -1,17 +1,19 @@
 import React from 'react';
 
-export default class AddTransaction extends React.Component {
+export default class AddIncome extends React.Component {
     state = {
         type: "",
         name: ""
     }
 
-    handleInputChange(event) {
+    handleInputChangeTulo(event) {
         const target = event.target;
         const value = target.value;
         const inputName = target.name;
     
-        this.setState({[inputName]: value});
+        this.setState({[inputName]: value,
+            type: "income"
+        });
       }
 
     onSave(event) {
@@ -32,21 +34,9 @@ export default class AddTransaction extends React.Component {
         return (
             <React.Fragment>
                 <form onSubmit={(event) => this.onSave(event)}>
-                <div>
-                    <label>Tyyppi: </label>
-                    <select
-                        required
-                        name="type" 
-                        onChange={(event) => this.handleInputChange(event)}
-                        >
-                        <option value="" selected disabled hidden>Please select one</option>
-                        <option value="income">Tulo</option>
-                        <option value="expense">Meno</option>
-                    </select>
-                    </div>
                     <div>
-                        <label>Nimi: </label>
-                        <input required type="text" name="name" onChange={(event) => this.handleInputChange(event)}/>
+                        <label>Lisää tulonlähde: </label>
+                        <input required type="text" name="name" onChange={(event) => this.handleInputChangeTulo(event)}/>
                     </div>
                     <button type="submit">Lisää</button>
                 </form>

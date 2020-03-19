@@ -36,13 +36,23 @@ export default function Money(props) {
             onDelete={() => onDelete(transactionData.id)}>{transactionData.name}</Transaction>
         }
     )
+
+    //const IncomeElements = transactionElements.filter(sourceOfIncome => sourceOfIncome.type = "income");
     
     return (
         <React.Fragment>
-            <div className="money">
+            <div>
+                <h2>Tulot</h2>
+                <div className="money">
                 {transactionElements}
+                </div>
+                <AddTransaction type={"income"} onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
+                <h2>Menot</h2>
+                <div className="money">
+                    {transactionElements}
+                </div>
+                <AddTransaction type={"expense"} onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
             </div>
-            <AddTransaction onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
         </React.Fragment>
     );
 }

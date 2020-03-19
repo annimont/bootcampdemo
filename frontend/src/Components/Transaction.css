@@ -1,11 +1,13 @@
 .transaction {
     background-color: white;
-    margin: 10px;
+    margin: 5px;
     padding: 4px;
-    text-align: center;
+    text-align: left;
     width: 7.5em;
     height: 1.5em;
     float: left;
   }
-.expense {background-color: red;}
-.income {background-color: green; color: white;}
+.expense {background-color: rgb(184, 26, 26);
+    color: white;}
+.income {background-color: rgb(61, 129, 61); 
+    color: white;}

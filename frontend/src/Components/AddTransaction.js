@@ -1,20 +1,19 @@
 import React from 'react';
 
-export default class AddIncome extends React.Component {
+export default class AddTransaction extends React.Component {
     state = {
         type: "",
         name: ""
     }
 
-    handleInputChangeTulo(event) {
+    handleInputChange(event) {
         const target = event.target;
         const value = target.value;
         const inputName = target.name;
     
         this.setState({[inputName]: value,
-            type: "income"
         });
-      }
+    }
 
     onSave(event) {
         event.preventDefault();
@@ -35,10 +34,10 @@ export default class AddIncome extends React.Component {
             <React.Fragment>
                 <form onSubmit={(event) => this.onSave(event)}>
                     <div>
-                        <label>Lisää tulonlähde: </label>
-                        <input required type="text" name="name" onChange={(event) => this.handleInputChangeTulo(event)}/>
+                        <label>Lisää: </label>
+                        <input required type="text" name="name" onChange={(event) => this.handleInputChange(event)}/>
                     </div>
-                    <button type="submit">Lisää</button>
+                    <button name="type" value={this.props.type} type="submit" onClick={(event) => this.handleInputChange(event)}>Lisää</button>
                 </form>
             </React.Fragment>
         );

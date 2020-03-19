@@ -1,3 +1,7 @@
+body {
+    margin: 0em 2em;
+}
+
 .money {
     background-color: rgb(177, 216, 243);
     width: 200px;

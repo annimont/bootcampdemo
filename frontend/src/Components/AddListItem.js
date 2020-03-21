@@ -1,9 +1,10 @@
 import React from 'react';
 
-export default class AddTransaction extends React.Component {
+export default class AddListItem extends React.Component {
     state = {
         type: "",
-        name: ""
+        name: "",
+        value: ""
     }
 
     handleInputChange(event) {
@@ -34,9 +35,8 @@ export default class AddTransaction extends React.Component {
             <React.Fragment>
                 <form onSubmit={(event) => this.onSave(event)}>
                     <div>
-                        <label>Lisää {this.props.lisaa}: </label>
-                        <input required type="text" name="name" onChange={(event) => this.handleInputChange(event)}/>
-                        <button name="type" value={this.props.type} type="submit" onClick={(event) => this.handleInputChange(event)}>Lisää</button>
+                        <input required className="inputbox" type="text" onChange={(event) => this.handleInputChange(event)}/>
+                        <button className="addbutton" type="submit">Lisää</button>
                     </div>
                 </form>
             </React.Fragment>

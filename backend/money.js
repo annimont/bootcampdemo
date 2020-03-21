@@ -1,17 +1,4 @@
-const pgp = require('pg-promise')();
-const db = pgp ({
-    host: 'localhost',
-    port: 5432,
-    database: 'demo',
-    user: 'postgres',
-    password: 'codebootcamp'
-});
-
-/*
-const moneyList =[
-    {"id": 1, "type": "tulo", "name": "Vuokra"}
-  ]
-*/
+const db = require('./db');
 
 const getMoney = (req, res) =>
     db.any('select * from tulotjamenot')

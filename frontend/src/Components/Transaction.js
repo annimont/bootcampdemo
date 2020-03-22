@@ -7,7 +7,7 @@ export default function Transaction(props) {
         <div className={`transaction ${props.type}`}>
             {props.onDelete && <button className="delbutton" onClick={event => props.onDelete()}>X</button> }
             {props.children} 
-            <AddListItem></AddListItem>
+            <AddListItem onListItemAdded={(newListItem) => setList([...list, newListItem])}/>
         </div>
     );
 

@@ -30,6 +30,7 @@ export default function Money(props) {
         );
     }
    
+    /*
     const transactionElements = money.map(
     transactionData => {
         return <Transaction 
@@ -41,28 +42,50 @@ export default function Money(props) {
             </Transaction>
         }
     )
-    /*
-    const incomeElements = money.map(
-        transactionData => {
-            return <Transaction key={transactionData.id} 
-            type={transactionData.type} 
-            onDelete={() => onDelete(transactionData.id)}>{transactionData.name}</Transaction>
+    */
+    
+    const incomeElements = money.filter(transaction => transaction.type === 'income')
+        .map(transactionData => {
+            return <Transaction 
+                key={transactionData.id} 
+                type={transactionData.type} 
+                onDelete={() => onDelete(transactionData.id)}
+                >
+                    {transactionData.name}
+                </Transaction>
         }
-    ).filter(transaction => transaction.type = "income");*/
+    );
+
+    const expenseElements = money.filter(transaction => transaction.type === 'expense')
+    .map(transactionData => {
+        return <Transaction 
+            key={transactionData.id} 
+            type={transactionData.type} 
+            onDelete={() => onDelete(transactionData.id)}
+            >
+                {transactionData.name}
+            </Transaction>
+    }
+);
     
     return (
         <React.Fragment>
             <div>
                 <h2>Tulot</h2>
                 <div className="money">
-                    {transactionElements}
+                    {incomeElements}
                 </div>
-                <AddTransaction type={"income"} lisaa="tulonlähde" onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
+                <AddTransaction type={"income"} 
+                    lisaa="tulonlähde" 
+                    onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
                 <h2>Menot</h2>
                 <div className="money">
-                    {transactionElements}
+                    {expenseElements}
                 </div>
-                <AddTransaction type={"expense"} lisaa="meno" onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
+                <AddTransaction 
+                    type={"expense"} 
+                    lisaa="meno" 
+                    onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
                 <List/>
             </div>
         </React.Fragment>

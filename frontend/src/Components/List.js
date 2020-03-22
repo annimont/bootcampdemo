@@ -6,7 +6,7 @@ export default function Money(props) {
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch('/api/money');
+            const res = await fetch('/api/moneylist');
             res
                 .json()
                 .then(data => setList(data))
@@ -17,7 +17,7 @@ export default function Money(props) {
     }, []);
 
     const onDelete = (id) => {
-        fetch(`/api/money/${id}`, {
+        fetch(`/api/moneylist/${id}`, {
         method: 'DELETE'
         })
         .then(() =>
@@ -28,10 +28,11 @@ export default function Money(props) {
     const listElements = list.map(
         listData => {
             return <ListItem key={listData.id} 
-                type={listData.type} 
+                type={listData.type}
+                value={listData.value} 
                 onDelete={() => onDelete(listData.id)}>{listData.name}</ListItem>
-            }
-        )
+        }
+    )
 
     return(
         <div>

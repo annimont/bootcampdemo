@@ -18,7 +18,7 @@ export default class AddListItem extends React.Component {
 
     onSave(event) {
         event.preventDefault();
-        fetch('/api/money', {
+        fetch('/api/moneylist', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -27,7 +27,7 @@ export default class AddListItem extends React.Component {
             body: JSON.stringify(this.state)
         })
         .then(response => response.json())
-        .then(newTransaction => this.props.onTransactionAdded(newTransaction));
+        .then(newListItem => this.props.onTransactionAdded(newListItem));
     }
 
     render() {

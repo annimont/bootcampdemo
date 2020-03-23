@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ListItem from './ListItem';
 
-export default function Money(props) {
+export default function List(props) {
     const [list, setList] = useState([]);
 
     useEffect(() => {
@@ -30,7 +30,10 @@ export default function Money(props) {
             return <ListItem key={listData.id} 
                 type={listData.type}
                 value={listData.value} 
-                onDelete={() => onDelete(listData.id)}>{listData.name}</ListItem>
+                onDelete={() => onDelete(listData.id)}
+                >
+                {listData.name}{listData.value}
+                </ListItem>
         }
     )
 

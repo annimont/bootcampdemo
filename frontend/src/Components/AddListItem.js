@@ -2,8 +2,8 @@ import React from 'react';
 
 export default class AddListItem extends React.Component {
     state = {
-        type: "",
-        name: "",
+        type: this.props.type,
+        name: this.props.name,
         value: ""
     }
 
@@ -27,7 +27,8 @@ export default class AddListItem extends React.Component {
             body: JSON.stringify(this.state)
         })
         .then(response => response.json())
-        .then(newListItem => this.props.onTransactionAdded(newListItem));
+        .then(newListItem => this.props.onListItemAdded(newListItem)); //miten lisätyn itemin saa lisättyä listaan
+        console.log(this.state);
     }
 
     render() {
@@ -35,7 +36,7 @@ export default class AddListItem extends React.Component {
             <React.Fragment>
                 <form onSubmit={(event) => this.onSave(event)}>
                     <div>
-                        <input required className="inputbox" type="text" onChange={(event) => this.handleInputChange(event)}/>
+                        <input required className="inputbox" type="text" name="value" onChange={(event) => this.handleInputChange(event)}/>
                         <button className="addbutton" type="submit">Lisää</button>
                     </div>
                 </form>

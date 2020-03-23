@@ -48,7 +48,8 @@ export default function Money(props) {
         .map(transactionData => {
             return <Transaction 
                 key={transactionData.id} 
-                type={transactionData.type} 
+                type={transactionData.type}
+                name={transactionData.name}
                 onDelete={() => onDelete(transactionData.id)}
                 >
                     {transactionData.name}
@@ -57,14 +58,15 @@ export default function Money(props) {
     );
 
     const expenseElements = money.filter(transaction => transaction.type === 'expense')
-    .map(transactionData => {
-        return <Transaction 
-            key={transactionData.id} 
-            type={transactionData.type} 
-            onDelete={() => onDelete(transactionData.id)}
-            >
-                {transactionData.name}
-            </Transaction>
+        .map(transactionData => {
+            return <Transaction 
+                key={transactionData.id} 
+                type={transactionData.type}
+                name={transactionData.name} 
+                onDelete={() => onDelete(transactionData.id)}
+                >
+                    {transactionData.name}
+                </Transaction>
     }
 );
     

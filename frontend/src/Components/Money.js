@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-//import fakeData from '../../fakedata/money.json';
 import AddTransaction from './AddTransaction';
 import Transaction from './Transaction';
 import List from './List';

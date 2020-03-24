@@ -27,8 +27,8 @@ export default class AddListItem extends React.Component {
             body: JSON.stringify(this.state)
         })
         .then(response => response.json())
-        .then(newListItem => this.props.onListItemAdded(newListItem)); //miten lisätyn itemin saa lisättyä listaan
-        console.log(this.state);
+        .then(newListItem => this.props.onListItemAdded(newListItem))
+        .then(window.location.reload()); //tälle vois keksiä jonkin muun ratkaisun
     }
 
     render() {

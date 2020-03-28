@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ListItem from './ListItem';
+import PieChart from './PieChart';
 import './List.css';
 
 export default function List(props) {
@@ -65,6 +66,20 @@ export default function List(props) {
             }
     )
 
+    const listOfExpenseNames = list.filter(listItem => listItem.type === 'expense')
+    .map(
+        itemData => {
+            return itemData.name
+        }
+    );
+
+    const listOfExpenseValues = list.filter(listItem => listItem.type === 'expense')
+    .map(
+        itemData => {
+            return itemData.value
+        }
+    );
+
     const incomeSum = list.filter(listItem => listItem.type === 'income')
         .map(
             itemData => {
@@ -87,15 +102,24 @@ export default function List(props) {
 
     return(
         <React.Fragment>
-            <div className="list">
+            <div>
                 <h2>Lista tuloista ja menoista</h2>
-                {listIncome}
-                <p>Yhteensä: {incomeSum.toFixed(2)} €</p>
-                {listExpense}
-                <p>Yhteensä: {expenseSum.toFixed(2)} €</p>
-                <p>Säästöön jää: {savings.toFixed(2)} € </p>
-                <p>Säästöprosentti: {savingsRate.toFixed(1)} %</p>
+                <div className="lists">
+                    <div className="list">
+                        {listIncome}
+                        <p className="yht">Yhteensä: {incomeSum.toFixed(2)} €</p>
+                    </div>
+                    <div className="list">
+                        {listExpense}
+                        <p className="yht">Yhteensä: {expenseSum.toFixed(2)} €</p>
+                    </div>
+                    <div className="savings">
+                        <p>Säästöön jää: {savings.toFixed(2)} € </p>
+                        <p>Säästöprosentti: {savingsRate.toFixed(1)} %</p>
+                    </div>
+                </div>
             </div>
+            <PieChart data={listOfExpenseNames} values={listOfExpenseValues}/>
         </React.Fragment>
     );
 }

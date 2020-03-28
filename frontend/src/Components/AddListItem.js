@@ -35,7 +35,7 @@ export default class AddListItem extends React.Component {
         return (
             <React.Fragment>
                 <form onSubmit={(event) => this.onSave(event)}>
-                    <div>
+                    <div className="addArea">
                         <input required className="inputbox" type="text" name="value" onChange={(event) => this.handleInputChange(event)}/>
                         <button className="addbutton" type="submit">Lisää</button>
                     </div>

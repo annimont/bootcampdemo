@@ -1,4 +1,30 @@
-.list {
+.lists {
     width: 400px;
     margin: 2em 0em;
+    padding: 1em;
+    background-color: gray;
+}
+
+.listItem, .list {
+    background-color: lightgray;
+}
+
+.listItem.income {
+    color: rgb(19, 82, 19);
+}
+
+.listItem.expense {
+    color: rgb(124, 13, 13);
+}
+
+.yht, .savings {
+    background-color: rgb(236, 234, 234);
+}
+
+.yht {
+    padding: 5px;
+}
+
+.savings {
+    padding: 0.4em 1em;
 }

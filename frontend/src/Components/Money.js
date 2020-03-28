@@ -71,22 +71,26 @@ export default function Money(props) {
     
     return (
         <React.Fragment>
-            <div>
-                <h2>Tulot</h2>
-                <div className="money">
-                    {incomeElements}
+            <div className="content">
+                <div className="incomeSources">
+                    <h2>Tulot</h2>
+                    <div className="money">
+                        {incomeElements}
+                    </div>
+                    <AddTransaction type={"income"} 
+                        lisaa="tulonlähde" 
+                        onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
                 </div>
-                <AddTransaction type={"income"} 
-                    lisaa="tulonlähde" 
-                    onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
-                <h2>Menot</h2>
-                <div className="money">
-                    {expenseElements}
+                <div className="expenseTargets">
+                    <h2>Menot</h2>
+                    <div className="money">
+                        {expenseElements}
+                    </div>
+                    <AddTransaction 
+                        type={"expense"} 
+                        lisaa="meno" 
+                        onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
                 </div>
-                <AddTransaction 
-                    type={"expense"} 
-                    lisaa="meno" 
-                    onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
                 <List/>
             </div>
         </React.Fragment>

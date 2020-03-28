@@ -1,12 +1,17 @@
-body {
-    margin: 0em 2em;
+.content {
+    margin: 1em 2em;
 }
 
 .money {
     background-color: rgb(177, 216, 243);
-    width: 400px;
+    width: 20em;
     padding: 20px 20px;
     overflow: auto;
-    margin:20px;
+    margin: 20px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(99, 153, 153);
+    border-radius: 10px;
 }
+
 

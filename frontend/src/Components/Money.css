@@ -3,15 +3,38 @@
 }
 
 .money {
-    background-color: rgb(177, 216, 243);
+    background-color: rgb(236, 234, 234);
     width: 20em;
     padding: 20px 20px;
     overflow: auto;
     margin: 20px;
     border-width: 2px;
     border-style: solid;
-    border-color: rgb(99, 153, 153);
+    border-color: rgb(102, 118, 131);
     border-radius: 10px;
 }
 
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.content:after {
+content: "";
+display: table;
+clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+h2 {
+    color: rgb(57, 64, 71);
+}
 

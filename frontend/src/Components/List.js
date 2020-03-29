@@ -102,7 +102,7 @@ export default function List(props) {
 
     return(
         <React.Fragment>
-            <div>
+            <div className="column">
                 <h2>Lista tuloista ja menoista</h2>
                 <div className="lists">
                     <div className="list">
@@ -119,7 +119,7 @@ export default function List(props) {
                     </div>
                 </div>
             </div>
-            <PieChart data={listOfExpenseNames} values={listOfExpenseValues}/>
+            <PieChart names={listOfExpenseNames} values={listOfExpenseValues}/>
         </React.Fragment>
     );
 }

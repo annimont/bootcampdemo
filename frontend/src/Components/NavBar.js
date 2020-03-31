@@ -1,20 +1,20 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React from 'react';
+import {Link} from 'react-router-dom';
 
-import "./NavBar.css"
+import './NavBar.css'
 
 export default function NavBar(props) {
     return (
-        <div className="nav-bar">
+        <div className='nav-bar'>
             <ul>
                 <li>
-                    <Link to="/">Etusivu</Link>
+                    <Link to='/'>Etusivu</Link>
                 </li>
                 <li>
-                    <Link to="/money">Tulot ja menot</Link>
+                    <Link to='/money'>Tulot ja menot</Link>
                 </li>
                 <li>
-                <Link to="/networth">Nettovarallisuus</Link>
+                <Link to='/networth'>Nettovarallisuus</Link>
                 </li>
             </ul>
         </div>

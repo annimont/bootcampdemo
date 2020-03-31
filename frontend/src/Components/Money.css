@@ -41,7 +41,33 @@ clear: both;
     }
 }
 
-h2, h3 {
+h1, h2, h3 {
     color: rgb(57, 64, 71);
+}
+
+.link {
+    padding: 0.7em;
+    margin: 2em;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.link a:link {
+    color: rgb(236, 234, 234);
+    background-color: rgb(57, 64, 71);
+    text-decoration: none;
+    padding: 0.7em;
+}
+.link a:visited {
+    color: rgb(236, 234, 234);
+    background-color: rgb(57, 64, 71);
+}
+.link a:hover {
+    color: rgb(57, 64, 71);
+    background-color: rgb(236, 234, 234);
+}
+.link a:active {
+    color: rgb(57, 64, 71);
+    background-color: rgb(236, 234, 234);
 }
 

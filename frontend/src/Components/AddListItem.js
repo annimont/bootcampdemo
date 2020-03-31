@@ -4,7 +4,7 @@ export default class AddListItem extends React.Component {
     state = {
         type: this.props.type,
         name: this.props.name,
-        value: ""
+        value: ''
     }
 
     handleInputChange(event) {
@@ -35,9 +35,9 @@ export default class AddListItem extends React.Component {
         return (
             <React.Fragment>
                 <form onSubmit={(event) => this.onSave(event)}>
-                    <div className="addArea">
-                        <input required className="inputbox" type="text" name="value" onChange={(event) => this.handleInputChange(event)}/>
-                        <button className="addbutton" type="submit">Lisää</button>
+                    <div className='addArea'>
+                        <input required className='inputbox' type='text' name='value' onChange={(event) => this.handleInputChange(event)}/>
+                        <button className='addbutton' type='submit'>Lisää</button>
                     </div>
                 </form>
             </React.Fragment>

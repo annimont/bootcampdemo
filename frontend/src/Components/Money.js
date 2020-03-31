@@ -71,25 +71,26 @@ export default function Money(props) {
     
     return (
         <React.Fragment>
-            <div className="content">
-                <div className="column">
-                    <div className="incomeSources">
+            <div className='content'>
+                <h1>Tulojen ja menojen seuranta</h1>
+                <div className='column'>
+                    <div className='incomeSources'>
                         <h2>Tulot</h2>
-                        <div className="money">
+                        <div className='money'>
                             {incomeElements}
                         </div>
-                        <AddTransaction type={"income"} 
-                            lisaa="tulonlähde" 
+                        <AddTransaction type={'income'} 
+                            lisaa='tulonlähde' 
                             onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
                     </div>
-                    <div className="expenseTargets">
+                    <div className='expenseTargets'>
                         <h2>Menot</h2>
-                        <div className="money">
+                        <div className='money'>
                             {expenseElements}
                         </div>
                         <AddTransaction 
-                            type={"expense"} 
-                            lisaa="meno" 
+                            type={'expense'} 
+                            lisaa='meno' 
                             onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
                     </div>
                 </div>
@@ -98,11 +99,3 @@ export default function Money(props) {
         </React.Fragment>
     );
 }
-    
-/*
-    <textarea rows="20" cols="100">Tänne joku palkkisysteemi ja kirjallinen lista, 
-        josta voi poistella asioita, jos tekee virheen. 
-        Palkeilla havainnollistetaan mistä tulot ja menot muodostuvat. 
-        Tulojen ja menojen erotus, säästöprosentti. Kuukausittainen seuranta?
-    </textarea>
-*/

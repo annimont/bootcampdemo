@@ -79,9 +79,9 @@ export default function Networth(props) {
     return (
         <React.Fragment>
         <div className='content'>
-            <h2>Nettovarallisuuslaskuri</h2>
+            <h1>Nettovarallisuuslaskuri</h1>
             <div>
-                <h3>Omaisuus</h3>
+                <h2>Omaisuus</h2>
                 <div className='networth'>
                     <div>
                         {assets}
@@ -93,7 +93,7 @@ export default function Networth(props) {
                     onNetworthItemAdded={(newNetworthItem) => setNetworth([...networth, newNetworthItem])}/>
             </div>
             <div>    
-                <h3>Velat</h3>
+                <h2>Velat</h2>
                 <div className='networth'>
                     <div>
                         {debt}

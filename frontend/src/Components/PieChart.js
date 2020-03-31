@@ -5,7 +5,7 @@ export default class PieChart extends React.Component {
      
     render() {
         return (
-            <div className="column">
+            <div className='column'>
                 <h2>Menojen jakautuminen</h2>
                 <Pie
                     data={{

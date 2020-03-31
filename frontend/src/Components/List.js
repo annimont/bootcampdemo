@@ -27,19 +27,6 @@ export default function List(props) {
         );
     }
 
-    /*
-    const listElements = list.map(
-        listData => {
-            return <ListItem key={listData.id} 
-                type={listData.type}
-                value={listData.value} 
-                onDelete={() => onDelete(listData.id)}
-                >
-                {`${listData.name} ${listData.value} €`}
-                </ListItem>
-        }
-    )*/
-
     const listIncome = list.filter(listItem => listItem.type === 'income')
         .map(
             listData => {
@@ -66,36 +53,25 @@ export default function List(props) {
             }
         )
     
-    //sähläys alkaa
+    let expenseList = list.filter(listItem => listItem.type === 'expense');
+    let groupedExpenses = [];
     
-    const filteredExpenseList = list.filter(listItem => listItem.type === 'expense');
+    expenseList.forEach(function (a) {
+        if (!this[a.name]) {
+            this[a.name] = { name: a.name, value: 0 };
+            groupedExpenses.push(this[a.name]);
+        }
+        this[a.name].value += a.value;
+    }, Object.create(null));
 
-    function groupBy(objectArray, property) {
-        return objectArray.reduce(function (acc, obj) {
-          let key = obj[property]
-          if (!acc[key]) {
-            acc[key] = []
-          }
-          acc[key].push(obj)
-          return acc
-        }, {})
-      }
-      
-    let groupedExpenses = groupBy(filteredExpenseList, 'name')
-    
-    console.log(groupedExpenses);
 
-    // sähläys päättyy
-
-    const listOfExpenseNames = list.filter(listItem => listItem.type === 'expense')
-    .map(
+    const listOfExpenseNames = groupedExpenses.map(
         itemData => {
             return itemData.name
         }
     );
 
-    const listOfExpenseValues = list.filter(listItem => listItem.type === 'expense')
-    .map(
+    const listOfExpenseValues = groupedExpenses.map(
         itemData => {
             return itemData.value
         }
@@ -123,18 +99,18 @@ export default function List(props) {
 
     return(
         <React.Fragment>
-            <div className="column">
+            <div className='column'>
                 <h2>Lista tuloista ja menoista</h2>
-                <div className="lists">
-                    <div className="list">
+                <div className='lists'>
+                    <div className='list'>
                         {listIncome}
-                        <p className="yht">Yhteensä: {incomeSum.toFixed(2)} €</p>
+                        <p className='yht'>Yhteensä: {incomeSum.toFixed(2)} €</p>
                     </div>
-                    <div className="list">
+                    <div className='list'>
                         {listExpense}
-                        <p className="yht">Yhteensä: {expenseSum.toFixed(2)} €</p>
+                        <p className='yht'>Yhteensä: {expenseSum.toFixed(2)} €</p>
                     </div>
-                    <div className="savings">
+                    <div className='savings'>
                         <p>Säästöön jää: {savings.toFixed(2)} € </p>
                         <p>Säästöprosentti: {savingsRate.toFixed(1)} %</p>
                     </div>

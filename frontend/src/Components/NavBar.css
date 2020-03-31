@@ -1,29 +1,27 @@
 .nav-bar {
     background-color: rgb(102, 118, 131);
     overflow: auto;
+    text-transform: uppercase;
 }
 
 /*nav-barin linkit */
 .nav-bar a:link {
     color: white;
+    padding: 1em;
     text-decoration: none;
-    text-transform: uppercase;
 }
 .nav-bar a:visited {
     color: white;
     text-decoration: none;
-    text-transform: uppercase;
 }
 .nav-bar a:hover {
     color: white;
     text-decoration: none;
-    text-transform: uppercase;
     background-color: rgb(57, 64, 71);
 }
 .nav-bar a:active {
     color: white;
     text-decoration: none;
-    text-transform: uppercase;
     background-color: rgb(57, 64, 71);
 }
   

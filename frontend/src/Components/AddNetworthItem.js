@@ -3,8 +3,8 @@ import React from 'react';
 export default class AddNetworthItem extends React.Component {
     state = {
         type: this.props.type,
-        name: "",
-        value: ""
+        name: '',
+        value: ''
     }
 
     handleInputChange(event) {
@@ -37,10 +37,10 @@ export default class AddNetworthItem extends React.Component {
                 <form onSubmit={(event) => this.onSave(event)}>
                     <div>
                         <label>Lisää {this.props.lisaa}: </label>
-                        <input required type="text" name="name" onChange={(event) => this.handleInputChange(event)}/>
+                        <input required type='text' name='name' onChange={(event) => this.handleInputChange(event)}/>
                         <label>Arvo: </label>
-                        <input className='inputbox' required type="text" name="value" onChange={(event) => this.handleInputChange(event)}/>
-                        <button name="type" value={this.props.type} type="submit" onClick={(event) => this.handleInputChange(event)}>Lisää</button>
+                        <input className='inputbox' required type='text' name='value' onChange={(event) => this.handleInputChange(event)}/>
+                        <button name='type' value={this.props.type} type='submit' onClick={(event) => this.handleInputChange(event)}>Lisää</button>
                     </div>
                 </form>
             </React.Fragment>

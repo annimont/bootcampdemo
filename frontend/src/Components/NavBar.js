@@ -8,7 +8,7 @@ export default function NavBar(props) {
         <div className="nav-bar">
             <ul>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/">Etusivu</Link>
                 </li>
                 <li>
                     <Link to="/money">Tulot ja menot</Link>

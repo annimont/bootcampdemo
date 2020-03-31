@@ -9,6 +9,18 @@
     background-color: lightgray;
 }
 
+.listItem.asset {
+    background-color: rgb(128, 165, 70);
+    color: white;
+    width: 23em;
+}
+
+.listItem.debt {
+    background-color: rgb(231, 113, 125);
+    color: white;
+    width: 23em;
+}
+
 .listItem.income {
     color: rgb(19, 82, 19);
 }

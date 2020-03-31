@@ -7,9 +7,11 @@
     height: 1.5em;
     float: left;
   }
-.expense {background-color: rgb(231, 113, 125);
+.expense {
+    background-color: rgb(231, 113, 125);
     color: white;}
-.income {background-color: rgb(128, 165, 70); 
+.income {
+    background-color: rgb(128, 165, 70); 
     color: white;}
 
 .inputbox {

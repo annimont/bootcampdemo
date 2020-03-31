@@ -51,7 +51,7 @@ export default function List(props) {
                     {`${listData.name} ${listData.value.toFixed(2)} €`}
                     </ListItem>
             }
-    )
+        )
 
     const listExpense = list.filter(listItem => listItem.type === 'expense')
         .map(
@@ -64,7 +64,28 @@ export default function List(props) {
                     {`${listData.name} ${listData.value.toFixed(2)} €`}
                     </ListItem>
             }
-    )
+        )
+    
+    //sähläys alkaa
+    
+    const filteredExpenseList = list.filter(listItem => listItem.type === 'expense');
+
+    function groupBy(objectArray, property) {
+        return objectArray.reduce(function (acc, obj) {
+          let key = obj[property]
+          if (!acc[key]) {
+            acc[key] = []
+          }
+          acc[key].push(obj)
+          return acc
+        }, {})
+      }
+      
+    let groupedExpenses = groupBy(filteredExpenseList, 'name')
+    
+    console.log(groupedExpenses);
+
+    // sähläys päättyy
 
     const listOfExpenseNames = list.filter(listItem => listItem.type === 'expense')
     .map(

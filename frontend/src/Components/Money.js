@@ -28,24 +28,33 @@ export default function Money(props) {
         setMoney(money.filter(transaction => transaction.id !== id))
         );
     }
-   
-    /*
-    const transactionElements = money.map(
-    transactionData => {
-        return <Transaction 
-            key={transactionData.id} 
-            type={transactionData.type} 
-            onDelete={() => onDelete(transactionData.id)}
-            >
-                {transactionData.name}
-            </Transaction>
+
+    const [list, setList] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            const res = await fetch('/api/moneylist');
+            res
+                .json()
+                .then(data => setList(data))
+                .catch(err => console.log(err));
         }
-    )
-    */
-    
+        
+    fetchData();
+    }, []);
+
+    const onListDelete = (id) => {
+        fetch(`/api/moneylist/${id}`, {
+        method: 'DELETE'
+        })
+        .then(() => 
+        setList(list.filter(transaction => transaction.id !== id))
+        );
+    }
+   
     const incomeElements = money.filter(transaction => transaction.type === 'income')
         .map(transactionData => {
-            return <Transaction 
+            return <Transaction onListItemAdded={(newListItem) => {console.log(newListItem); setList([...list, newListItem])}}
                 key={transactionData.id} 
                 type={transactionData.type}
                 name={transactionData.name}
@@ -58,7 +67,7 @@ export default function Money(props) {
 
     const expenseElements = money.filter(transaction => transaction.type === 'expense')
         .map(transactionData => {
-            return <Transaction 
+            return <Transaction onListItemAdded={(newListItem) => {console.log(newListItem); setList([...list, newListItem])}}
                 key={transactionData.id} 
                 type={transactionData.type}
                 name={transactionData.name} 
@@ -94,7 +103,7 @@ export default function Money(props) {
                             onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
                     </div>
                 </div>
-                <List/>
+                <List list={list} onListDelete={onListDelete}/>
             </div>
         </React.Fragment>
     );

@@ -4,12 +4,12 @@ export default class AddListItem extends React.Component {
     state = {
         type: this.props.type,
         name: this.props.name,
-        value: ''
+        value: null
     }
 
     handleInputChange(event) {
         const target = event.target;
-        const value = target.value;
+        const value = parseFloat(target.value);
         const inputName = target.name;
     
         this.setState({[inputName]: value,
@@ -28,7 +28,6 @@ export default class AddListItem extends React.Component {
         })
         .then(response => response.json())
         .then(newListItem => this.props.onListItemAdded(newListItem))
-        .then(window.location.reload()); //tälle vois keksiä jonkin muun ratkaisun
     }
 
     render() {
@@ -36,7 +35,7 @@ export default class AddListItem extends React.Component {
             <React.Fragment>
                 <form onSubmit={(event) => this.onSave(event)}>
                     <div className='addArea'>
-                        <input required className='inputbox' type='text' name='value' onChange={(event) => this.handleInputChange(event)}/>
+                        <input required className='inputbox' type='number' step="0.01" min='0.01' max='10000000' name='value' onChange={(event) => this.handleInputChange(event)}/>
                         <button className='addbutton' type='submit'>Lisää</button>
                     </div>
                 </form>

@@ -9,7 +9,7 @@ export default class AddNetworthItem extends React.Component {
 
     handleInputChange(event) {
         const target = event.target;
-        const value = target.value;
+        let value = target.value;
         const inputName = target.name;
     
         this.setState({[inputName]: value,
@@ -27,8 +27,7 @@ export default class AddNetworthItem extends React.Component {
             body: JSON.stringify(this.state)
         })
         .then(response => response.json())
-        .then(newNetworthItem => this.props.onTransactionAdded(newNetworthItem))
-        .then(window.location.reload());
+        .then(newNetworthItem => this.props.onNetworthItemAdded(newNetworthItem))
     }
 
     render() {
@@ -37,9 +36,9 @@ export default class AddNetworthItem extends React.Component {
                 <form onSubmit={(event) => this.onSave(event)}>
                     <div>
                         <label>Lisää {this.props.lisaa}: </label>
-                        <input required type='text' name='name' onChange={(event) => this.handleInputChange(event)}/>
+                        <input required type='text' maxLength='18' name='name' onChange={(event) => this.handleInputChange(event)}/>
                         <label>Arvo: </label>
-                        <input className='inputbox' required type='text' name='value' onChange={(event) => this.handleInputChange(event)}/>
+                        <input className='inputbox' required type='number' step="0.01" min='0.01' max='10000000' name='value' onChange={(event) => this.handleInputChange(event)}/>
                         <button name='type' value={this.props.type} type='submit' onClick={(event) => this.handleInputChange(event)}>Lisää</button>
                     </div>
                 </form>

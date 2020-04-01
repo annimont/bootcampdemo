@@ -14,7 +14,7 @@
 }
 
 .money {
-    width: 20em;
+    width: 22em;
 }
 
 .networth {
@@ -27,15 +27,15 @@
     width: 33.33%;
 }
 
-/* Clear floats after the columns */
-.content:after {
-content: "";
-display: table;
-clear: both;
+/* Makes the three columns stack on top of each other (two columns) instead of next to each other on smaller screens (1500px wide or less) */
+@media screen and (max-width: 1500px) {
+    .column {
+        width: 50%;
+    }
 }
 
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (1200px wide or less) */
-@media screen and (max-width: 1200px) {
+/* Makes the three columns stack on top of each other (one column) instead of next to each other on smaller screens (950px wide or less) */
+@media screen and (max-width: 950px) {
     .column {
         width: 100%;
     }

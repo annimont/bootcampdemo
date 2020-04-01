@@ -38,7 +38,7 @@ export default function Networth(props) {
                 value={networthItemData.value}
                 onDelete={() => onDelete(networthItemData.id)}
                 >
-                    {`${networthItemData.name} ${networthItemData.value.toFixed(2)} €`}
+                    {`${networthItemData.name} ${networthItemData.value.toFixed(2).replace('.', ',')} €`}
                 </ListItem>
         }
     );
@@ -52,7 +52,7 @@ export default function Networth(props) {
                 value={networthItemData.value}
                 onDelete={() => onDelete(networthItemData.id)}
                 >
-                    {`${networthItemData.name} ${networthItemData.value.toFixed(2)} €`}
+                    {`${networthItemData.name} ${networthItemData.value.toFixed(2).replace('.', ',')} €`}
                 </ListItem>
         }
     );
@@ -86,7 +86,7 @@ export default function Networth(props) {
                     <div>
                         {assets}
                     </div>
-                    <p>Yhteensä: {allAssets.toFixed(2)} €</p>
+                    <p>Yhteensä: {allAssets.toFixed(2).replace('.', ',')} €</p>
                 </div>
                 <AddNetworthItem type='asset'
                     lisaa='omaisuutta'
@@ -98,14 +98,14 @@ export default function Networth(props) {
                     <div>
                         {debt}
                     </div>
-                    <p>Yhteensä: {allDebt.toFixed(2)} €</p>
+                    <p>Yhteensä: {allDebt.toFixed(2).replace('.', ',')} €</p>
                 </div>
                 <AddNetworthItem type='debt'
                     lisaa='velka'
                     onNetworthItemAdded={(newNetworthItem) => setNetworth([...networth, newNetworthItem])}/>
             </div>
             <div className='networth'>
-                <p>Tämänhetkinen nettovarallisuutesi: {`${currentNetworth.toFixed(2)} €`}</p>
+                <p>Tämänhetkinen nettovarallisuutesi: {currentNetworth.toFixed(2).replace('.', ',')} €</p>
             </div>
         </div>
         </React.Fragment>

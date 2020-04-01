@@ -7,7 +7,7 @@
 /*nav-barin linkit */
 .nav-bar a:link {
     color: white;
-    padding: 1em;
+    padding: 0.65em;
     text-decoration: none;
 }
 .nav-bar a:visited {
@@ -19,7 +19,7 @@
     text-decoration: none;
     background-color: rgb(57, 64, 71);
 }
-.nav-bar a:active {
+.nav-bar a.current {
     color: white;
     text-decoration: none;
     background-color: rgb(57, 64, 71);

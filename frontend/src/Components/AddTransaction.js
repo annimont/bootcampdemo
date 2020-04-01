@@ -35,7 +35,7 @@ export default class AddTransaction extends React.Component {
                 <form onSubmit={(event) => this.onSave(event)}>
                     <div>
                         <label>Lisää {this.props.lisaa}: </label>
-                        <input required type='text' name='name' onChange={(event) => this.handleInputChange(event)}/>
+                        <input required type='text' maxLength='18' name='name' onChange={(event) => this.handleInputChange(event)}/>
                         <button name='type' value={this.props.type} type='submit' onClick={(event) => this.handleInputChange(event)}>Lisää</button>
                     </div>
                 </form>

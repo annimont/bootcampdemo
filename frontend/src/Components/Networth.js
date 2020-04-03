@@ -4,6 +4,8 @@ import './Transaction.css';
 import './List.css';
 import AddNetworthItem from './AddNetworthItem';
 import ListItem from './ListItem';
+import Sum from './Sum';
+import Difference from './Difference';
 
 export default function Networth(props) {
     const [networth, setNetworth] = useState([]);
@@ -38,7 +40,7 @@ export default function Networth(props) {
                 value={networthItemData.value}
                 onDelete={() => onDelete(networthItemData.id)}
                 >
-                    {`${networthItemData.name} ${networthItemData.value.toFixed(2).replace('.', ',')} €`}
+                    {`${networthItemData.name} ${parseFloat(networthItemData.value).toFixed(2).replace('.', ',')} €`}
                 </ListItem>
         }
     );
@@ -52,29 +54,10 @@ export default function Networth(props) {
                 value={networthItemData.value}
                 onDelete={() => onDelete(networthItemData.id)}
                 >
-                    {`${networthItemData.name} ${networthItemData.value.toFixed(2).replace('.', ',')} €`}
+                    {`${networthItemData.name} ${parseFloat(networthItemData.value).toFixed(2).replace('.', ',')} €`}
                 </ListItem>
         }
-    );
-    
-    const allAssets = networth.filter(listItem => listItem.type === 'asset')
-    .map(
-        itemData => {
-            return itemData.value
-        }
-    )
-    .reduce((a, b) => a + b, 0);
-
-    const allDebt = networth.filter(listItem => listItem.type === 'debt')
-    .map(
-        itemData => {
-            return itemData.value
-        }
-    )
-    .reduce((a, b) => a + b, 0);
-
-    const currentNetworth = allAssets - allDebt;
-        
+    );  
 
     return (
         <React.Fragment>
@@ -86,11 +69,11 @@ export default function Networth(props) {
                     <div>
                         {assets}
                     </div>
-                    <p>Yhteensä: {allAssets.toFixed(2).replace('.', ',')} €</p>
-                </div>
-                <AddNetworthItem type='asset'
+                    <AddNetworthItem type='asset'
                     lisaa='omaisuutta'
                     onNetworthItemAdded={(newNetworthItem) => setNetworth([...networth, newNetworthItem])}/>
+                    <p>Yhteensä: <Sum data={networth} type='asset'/> €</p>
+                </div>
             </div>
             <div>    
                 <h2>Velat</h2>
@@ -98,14 +81,14 @@ export default function Networth(props) {
                     <div>
                         {debt}
                     </div>
-                    <p>Yhteensä: {allDebt.toFixed(2).replace('.', ',')} €</p>
-                </div>
-                <AddNetworthItem type='debt'
+                    <AddNetworthItem type='debt'
                     lisaa='velka'
                     onNetworthItemAdded={(newNetworthItem) => setNetworth([...networth, newNetworthItem])}/>
+                    <p>Yhteensä: <Sum data={networth} type='debt'/> €</p>
+                </div>
             </div>
             <div className='networth'>
-                <p>Tämänhetkinen nettovarallisuutesi: {currentNetworth.toFixed(2).replace('.', ',')} €</p>
+                <p>Tämänhetkinen nettovarallisuutesi: <Difference data={networth} typeA='asset' typeB='debt'/> €</p>
             </div>
         </div>
         </React.Fragment>

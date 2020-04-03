@@ -2,6 +2,9 @@ import React from 'react';
 import ListItem from './ListItem';
 import PieChart from './PieChart';
 import './List.css';
+import Sum from './Sum';
+import Difference from './Difference';
+import Savingsrate from './Savingsrate';
 
 export default function List(props) {
     const {list} = props;
@@ -31,7 +34,7 @@ export default function List(props) {
                     </ListItem>
             }
         )
-    
+    //information for the piechart
     let expenseList = list.filter(listItem => listItem.type === 'expense');
     let groupedExpenses = [];
     
@@ -56,26 +59,6 @@ export default function List(props) {
         }
     );
 
-    const incomeSum = list.filter(listItem => listItem.type === 'income')
-        .map(
-            itemData => {
-                return itemData.value
-            }
-        )
-        .reduce((a, b) => a + b, 0);
-
-    const expenseSum = list.filter(listItem => listItem.type === 'expense')
-        .map(
-            itemData => {
-                return itemData.value
-            }
-        )
-        .reduce((a, b) => a + b, 0);
-    
-    const savings = incomeSum - expenseSum;
-
-    const savingsRate = savings / incomeSum * 100;
-
     return(
         <React.Fragment>
             <div className='column'>
@@ -83,15 +66,15 @@ export default function List(props) {
                 <div className='lists'>
                     <div className='list'>
                         {listIncome}
-                        <p className='yht'>Yhteensä: {incomeSum.toFixed(2).replace('.', ',')} €</p>
+                        <p className='yht'>Yhteensä: <Sum data={list} type='income'/> €</p>
                     </div>
                     <div className='list'>
                         {listExpense}
-                        <p className='yht'>Yhteensä: {expenseSum.toFixed(2).replace('.', ',')} €</p>
+                        <p className='yht'>Yhteensä: <Sum data={list} type='expense'/> €</p>
                     </div>
                     <div className='savings'>
-                        <p>Säästöön jää: {savings.toFixed(2).replace('.', ',')} € </p>
-                        <p>Säästöprosentti: {savingsRate.toFixed(1).replace('.', ',')} %</p>
+                        <p>Säästöön jää: <Difference data={list} typeA='income' typeB='expense'/> € </p>
+                        <p>Säästöprosentti: <Savingsrate data={list} typeA='income' typeB='expense'/> %</p>
                     </div>
                 </div>
             </div>

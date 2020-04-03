@@ -39,7 +39,7 @@ export default class AddNetworthItem extends React.Component {
                         <input required type='text' maxLength='18' name='name' onChange={(event) => this.handleInputChange(event)}/>
                         <label>Arvo: </label>
                         <input className='inputbox' required type='number' step="0.01" min='0.01' max='10000000' name='value' onChange={(event) => this.handleInputChange(event)}/>
-                        <button name='type' value={this.props.type} type='submit' onClick={(event) => this.handleInputChange(event)}>Lisää</button>
+                        <button name='type' value={this.props.type} type='submit'>Lisää</button>
                     </div>
                 </form>
             </React.Fragment>

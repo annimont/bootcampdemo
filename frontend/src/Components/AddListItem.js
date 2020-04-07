@@ -27,7 +27,14 @@ export default class AddListItem extends React.Component {
             body: JSON.stringify(this.state)
         })
         .then(response => response.json())
-        .then(newListItem => this.props.onListItemAdded(newListItem))
+        .then(newListItem => this.props.onListItemAdded(newListItem));
+
+        console.log('TYYPPI ' + this.state.type);
+        console.log('NIMI ' + this.state.name);
+        console.log('ARVO ' + this.state.value);
+        this.setState({
+            value: ''
+        }); 
     }
 
     render() {
@@ -35,7 +42,7 @@ export default class AddListItem extends React.Component {
             <React.Fragment>
                 <form onSubmit={(event) => this.onSave(event)}>
                     <div className='addArea'>
-                        <input required className='inputbox' type='number' step="0.01" min='0.01' max='10000000' name='value' onChange={(event) => this.handleInputChange(event)}/>
+                        <input required className='inputbox' type='number' step="0.01" min='0.01' max='10000000' name='value' value={this.state.value} onChange={(event) => this.handleInputChange(event)}/>
                         <button className='addbutton' type='submit'>Lisää</button>
                     </div>
                 </form>

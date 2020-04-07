@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Savingsrate(props) {
     const moneyComes = props.data.filter(listItem => listItem.type === props.typeA)
     .map(

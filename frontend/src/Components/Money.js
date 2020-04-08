@@ -82,25 +82,27 @@ export default function Money(props) {
         <React.Fragment>
             <div className='content'>
                 <h1>Tulojen ja menojen seuranta</h1>
+                <p>Lisää tulonlähteitä ja menoeriä. Kirjoita tulonlähteisiin esimerkiksi "palkka" ja paina "Lisää".</p>
+                <p>Kun olet lisännyt kohteen, ilmoita tulon tai menon suuruus euroina.</p>
                 <div className='column'>
                     <div className='incomeSources'>
                         <h2>Tulot</h2>
                         <div className='money'>
                             {incomeElements}
+                            <AddTransaction type={'income'} 
+                                lisaa='tulonlähde' 
+                                onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
                         </div>
-                        <AddTransaction type={'income'} 
-                            lisaa='tulonlähde' 
-                            onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
                     </div>
                     <div className='expenseTargets'>
                         <h2>Menot</h2>
                         <div className='money'>
                             {expenseElements}
+                            <AddTransaction 
+                                type={'expense'} 
+                                lisaa='meno' 
+                                onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
                         </div>
-                        <AddTransaction 
-                            type={'expense'} 
-                            lisaa='meno' 
-                            onTransactionAdded={(newTransaction) => setMoney([...money, newTransaction])}/>
                     </div>
                 </div>
                 <List list={list} onListDelete={onListDelete}/>

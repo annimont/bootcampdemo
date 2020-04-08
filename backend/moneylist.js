@@ -1,7 +1,7 @@
 const db = require('./db');
 
 const getMoneyList = (req, res) =>
-    db.any('select * from list')
+    db.any('SELECT * FROM list ORDER BY id')
     .then(listFromDb => res.send(listFromDb))
     .catch(error => res.status(500).send(error))
 

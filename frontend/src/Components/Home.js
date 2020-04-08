@@ -7,7 +7,7 @@ export default function(props) {
         <div className='content'>
             <h1>Talousseuranta</h1>
             <p>Sivuston avulla voit tarkkailla, missä tilanteessa taloutesi on.</p>
-            <p>Tuloja ja menoja seuraamalla pysyt paremmin perillä, mihin rahasi menevät, ja kuinka moni vaivalla ansaitsemistasi pennosista jää säästöön.</p>
+            <p>Tuloja ja menoja seuraamalla pysyt paremmin perillä, mihin rahasi menevät ja kuinka moni vaivalla ansaitsemistasi pennosista jää säästöön.</p>
                 <div className='link'>
                     <Link to='/money'>Tulojen ja menojen seuranta</Link>
                 </div>

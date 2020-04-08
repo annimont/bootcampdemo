@@ -47,9 +47,16 @@ export default class AddNetworthItem extends React.Component {
                 <form id='myForm' onSubmit={(event) => this.onSave(event)}>
                     <div>
                         <label>Lisää {this.props.lisaa}: </label>
-                        <input required type='text' maxLength='18' name='name' value={this.state.name} onChange={(event) => this.handleInputChange(event)}/>
+                        <input required 
+                            type='text' maxLength='18' 
+                            name='name' value={this.state.name} 
+                            onChange={(event) => this.handleInputChange(event)}/>
                         <label>Arvo: </label>
-                        <input className='inputbox' required type='number' step="0.01" min='0.01' max='10000000' name='value' value={this.state.value} onChange={(event) => this.handleInputChange(event)}/>
+                        <input className='inputbox' 
+                            required 
+                            type='number' step="0.01" min='0.01' max='10000000' 
+                            name='value' value={this.state.value} 
+                            onChange={(event) => this.handleInputChange(event)}/>
                         <button name='type' value={this.props.type} type='submit'>Lisää</button>
                     </div>
                 </form>

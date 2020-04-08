@@ -1,7 +1,7 @@
 const db = require('./db');
 
 const getNetworth = (req, res) =>
-    db.any('select * from networth order by id')
+    db.any('SELECT * FROM networth ORDER BY id')
     .then(listFromDb => res.send(listFromDb))
     .catch(error => res.status(500).send(error))
 

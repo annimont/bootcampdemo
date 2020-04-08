@@ -63,6 +63,8 @@ export default function Networth(props) {
         <React.Fragment>
         <div className='content'>
             <h1>Nettovarallisuuslaskuri</h1>
+            <p>Nettovarallisuus lasketaan niin, että omaisuuden arvosta vähennetään velkojen määrä.</p>
+            <p>Alle voit listata, mistä omaisuutesi ja velkasi koostuvat. </p>
             <div>
                 <h2>Omaisuus</h2>
                 <div className='networth'>

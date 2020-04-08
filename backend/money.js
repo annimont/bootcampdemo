@@ -1,7 +1,7 @@
 const db = require('./db');
 
 const getMoney = (req, res) =>
-    db.any('select * from tulotjamenot')
+    db.any('SELECT * FROM tulotjamenot ORDER BY id')
     .then(transactionListFromDb => res.send(transactionListFromDb))
     .catch(error => res.status(500).send(error))
 

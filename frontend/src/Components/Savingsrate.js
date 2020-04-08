@@ -18,8 +18,14 @@ export default function Savingsrate(props) {
     const dif = moneyComes - moneyGoes;
 
     const rate = dif / moneyComes * 100;
-
-    return (
-        rate.toFixed(1).replace('.', ',')
-    );
+    console.log(typeof rate);
+    
+    if (isNaN(rate)) {
+        return '-';
+    }
+    else {
+        return (
+            rate.toFixed(1).replace('.', ',')
+        );
+    }
 }
